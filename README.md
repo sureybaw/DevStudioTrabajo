@@ -51,7 +51,7 @@ devstudio/
 
 ## Cómo ejecutar
 
-Abrir con **Live Server** en VS Code o publicar en **GitHub Pages**.
+Acceder a la web a traves del siguiente enlace: https://sureybaw.github.io/DevStudioTrabajo/
 
 > La página de contacto requiere que el usuario acepte compartir su ubicación para mostrar la ruta automática por carretera.
 
