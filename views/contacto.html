@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — DevStudio</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/contacto.css">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <!-- Leaflet Routing Machine CSS — para rutas por carretera -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar__logo">DEV<span>STUDIO</span></a>
+    <ul class="navbar__links" id="navLinks">
+      <li><a href="../index.html"       >Inicio</a></li>
+      <li><a href="galeria.html"        >Galería</a></li>
+      <li><a href="presupuesto.html"    >Presupuesto</a></li>
+      <li><a href="contacto.html"       class="active">Contacto</a></li>
+    </ul>
+    <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+
+    <section class="contacto-hero">
+      <span class="section-tag">Hablemos</span>
+      <h1 class="section-title">Contacta con nosotros</h1>
+      <p>Estamos en Tejina, La Laguna, Tenerife. El mapa muestra automáticamente la ruta hasta nosotros.</p>
+    </section>
+
+    <div class="contacto__layout">
+
+      <!-- Panel de datos -->
+      <aside class="contacto__info">
+
+        <div class="info-card">
+          <div class="info-card__icon">📍</div>
+          <div>
+            <h3>Dirección</h3>
+            <p>Avenida Milán, 139<br>Tejina, San Cristóbal de La Laguna<br>38270 · Santa Cruz de Tenerife</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card__icon">📞</div>
+          <div>
+            <h3>Teléfono</h3>
+            <p><a href="tel:+34612345678">+34 661346987</a></p>
+            <p class="info-small">Lun–Vie, 9:00–18:00</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card__icon">✉️</div>
+          <div>
+            <h3>Email</h3>
+            <p><a href="mailto:hola@devstudio.es">sureybautista@devstudio.es</a></p>
+            <p class="info-small">Respondemos en &lt;24 h</p>
+          </div>
+        </div>
+
+        <!-- Estado de la geolocalización -->
+        <div class="geo-estado" id="geoEstado">
+          <div class="geo-estado__icono">📡</div>
+          <p id="geoTexto">Obteniendo tu ubicación para calcular la ruta...</p>
+        </div>
+
+      </aside>
+
+      <!-- Mapa -->
+      <div class="contacto__mapa">
+        <div id="mapa"></div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">DEV<span>STUDIO</span></div>
+        <p>Estudio de desarrollo web profesional.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="GitHub">gh</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Páginas</h4>
+        <a href="../index.html">Inicio</a>
+        <a href="galeria.html">Galería</a>
+        <a href="presupuesto.html">Presupuesto</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div class="footer__col">
+        <h4>Servicios</h4>
+        <a href="#">Desarrollo Web</a>
+        <a href="#">Apps Web</a>
+        <a href="#">Diseño UI/UX</a>
+        <a href="#">SEO</a>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <a href="mailto:hola@devstudio.es">sureybautista@devstudio.es</a>
+        <a href="tel:+34612345678">+34 661346987</a>
+        <a href="#">Avenida Milán, 139 · Tejina · La Laguna</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 DevStudio. Todos los derechos reservados.</p>
+      <div>
+        <a href="#">Aviso legal</a> &nbsp;·&nbsp;
+        <a href="#">Política de privacidad</a> &nbsp;·&nbsp;
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Leaflet Routing Machine — calcula rutas por carretera usando OSRM -->
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/contacto.js"></script>
+
+</body>
+</html>

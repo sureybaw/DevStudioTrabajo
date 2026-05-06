@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería — DevStudio</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/galeria.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar__logo">DEV<span>STUDIO</span></a>
+    <ul class="navbar__links" id="navLinks">
+      <li><a href="../index.html"    >Inicio</a></li>
+      <li><a href="galeria.html"     class="active">Galería</a></li>
+      <li><a href="presupuesto.html" >Presupuesto</a></li>
+      <li><a href="contacto.html"    >Contacto</a></li>
+    </ul>
+    <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+
+    <section class="galeria-hero">
+      <span class="section-tag">Nuestro trabajo</span>
+      <h1 class="section-title">Galería de proyectos</h1>
+      <p class="galeria-hero__sub">Explora nuestra selección de proyectos web. Filtra por categoría.</p>
+      <div class="galeria__filtros">
+        <button class="filtro-btn active" data-filtro="todos">Todos</button>
+        <button class="filtro-btn" data-filtro="web">Webs</button>
+        <button class="filtro-btn" data-filtro="app">Apps</button>
+        <button class="filtro-btn" data-filtro="ecommerce">E-Commerce</button>
+        <button class="filtro-btn" data-filtro="landing">Landings</button>
+      </div>
+    </section>
+
+    <!-- Grid — las tarjetas las genera JS con width y height en cada imagen -->
+    <section class="galeria__grid" id="galeriaGrid"></section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada">
+      <button class="lightbox__close" id="lightboxClose" aria-label="Cerrar">&times;</button>
+      <button class="lightbox__prev"  id="lightboxPrev"  aria-label="Anterior">&#8249;</button>
+      <button class="lightbox__next"  id="lightboxNext"  aria-label="Siguiente">&#8250;</button>
+      <div class="lightbox__content">
+        <!-- CORRECCIÓN: width y height declarados en la imagen del lightbox -->
+        <img src="" alt="" id="lightboxImg" width="540" height="360">
+        <div class="lightbox__info">
+          <h3 id="lightboxTitle"></h3>
+          <p  id="lightboxDesc"></p>
+          <span id="lightboxCat" class="section-tag"></span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">DEV<span>STUDIO</span></div>
+        <p>Estudio de desarrollo web profesional.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="GitHub">gh</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Páginas</h4>
+        <a href="../index.html">Inicio</a>
+        <a href="galeria.html">Galería</a>
+        <a href="presupuesto.html">Presupuesto</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div class="footer__col">
+        <h4>Servicios</h4>
+        <a href="#">Desarrollo Web</a>
+        <a href="#">Apps Web</a>
+        <a href="#">Diseño UI/UX</a>
+        <a href="#">SEO</a>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <a href="mailto:hola@devstudio.es">sureybautista@devstudio.es</a>
+        <a href="tel:+34612345678">+34 661346987</a>
+        <a href="#">Avenida Milán, 139 · Tejina · La Laguna</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 DevStudio. Todos los derechos reservados.</p>
+      <div>
+        <a href="#">Aviso legal</a> &nbsp;·&nbsp;
+        <a href="#">Política de privacidad</a> &nbsp;·&nbsp;
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/galeria.js"></script>
+
+</body>
+</html>

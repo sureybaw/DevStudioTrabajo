@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presupuesto — DevStudio</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/presupuesto.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar__logo">DEV<span>STUDIO</span></a>
+    <ul class="navbar__links" id="navLinks">
+      <li><a href="../index.html"    >Inicio</a></li>
+      <li><a href="galeria.html"     >Galería</a></li>
+      <li><a href="presupuesto.html" class="active">Presupuesto</a></li>
+      <li><a href="contacto.html"    >Contacto</a></li>
+    </ul>
+    <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+
+    <section class="presupuesto-hero">
+      <span class="section-tag">Sin compromiso</span>
+      <h1 class="section-title">Solicita tu presupuesto</h1>
+      <p>Rellena el formulario y recibirás una propuesta personalizada en 24 horas.</p>
+    </section>
+
+    <div class="presupuesto__wrapper">
+      <form id="formPresupuesto" novalidate>
+
+        <!-- PARTE 1: DATOS DE CONTACTO -->
+        <fieldset class="form-section">
+          <legend class="form-section__legend">
+            <span class="form-section__num">01</span>
+            Datos de contacto
+          </legend>
+          <div class="form-grid">
+            <div class="form-group" id="grp-nombre">
+              <label for="nombre">Nombre <span class="req">*</span></label>
+              <input type="text" id="nombre" name="nombre" maxlength="15"
+                     placeholder="Tu nombre" autocomplete="given-name">
+              <span class="error-msg" id="err-nombre">Solo letras, máximo 15 caracteres.</span>
+            </div>
+            <div class="form-group" id="grp-apellidos">
+              <label for="apellidos">Apellidos <span class="req">*</span></label>
+              <input type="text" id="apellidos" name="apellidos" maxlength="40"
+                     placeholder="Tus apellidos" autocomplete="family-name">
+              <span class="error-msg" id="err-apellidos">Solo letras, máximo 40 caracteres.</span>
+            </div>
+            <div class="form-group" id="grp-telefono">
+              <label for="telefono">Teléfono <span class="req">*</span></label>
+              <input type="tel" id="telefono" name="telefono" maxlength="9"
+                     placeholder="612345678" autocomplete="tel">
+              <span class="error-msg" id="err-telefono">Solo números, máximo 9 dígitos.</span>
+            </div>
+            <div class="form-group" id="grp-email">
+              <label for="email">Correo electrónico <span class="req">*</span></label>
+              <input type="email" id="email" name="email"
+                     placeholder="correo@ejemplo.com" autocomplete="email">
+              <span class="error-msg" id="err-email">Introduce un email válido (ej: nombre@dominio.com).</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- PARTE 2: CONFIGURAR PRESUPUESTO -->
+        <fieldset class="form-section">
+          <legend class="form-section__legend">
+            <span class="form-section__num">02</span>
+            Configura tu proyecto
+          </legend>
+
+          <div class="form-group">
+            <label for="producto">Tipo de proyecto <span class="req">*</span></label>
+            <select id="producto" name="producto">
+              <option value="">— Selecciona un tipo —</option>
+              <option value="1500" data-label="Web corporativa">Web corporativa — 1.500 €</option>
+              <option value="3500" data-label="Tienda online">Tienda online (E-commerce) — 3.500 €</option>
+              <option value="5000" data-label="Aplicación web">Aplicación web a medida — 5.000 €</option>
+              <option value="800"  data-label="Landing page">Landing page — 800 €</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="plazo">
+              Plazo de entrega (meses)
+              <span class="plazo-hint" id="plazoHint"></span>
+            </label>
+            <input type="number" id="plazo" name="plazo" min="1" max="12" placeholder="Ej: 3">
+            <span class="form-help">Entre 1 y 12 meses. Menos tiempo = más coste.</span>
+          </div>
+
+          <div class="form-group">
+            <label>Extras opcionales</label>
+            <div class="extras-grid">
+              <label class="extra-item">
+                <input type="checkbox" name="extra" value="500" data-label="SEO avanzado">
+                <span class="extra-check"></span>
+                <span class="extra-label">SEO avanzado <strong>+500 €</strong></span>
+              </label>
+              <label class="extra-item">
+                <input type="checkbox" name="extra" value="300" data-label="Mantenimiento anual">
+                <span class="extra-check"></span>
+                <span class="extra-label">Mantenimiento anual <strong>+300 €</strong></span>
+              </label>
+              <label class="extra-item">
+                <input type="checkbox" name="extra" value="400" data-label="Diseño de logo">
+                <span class="extra-check"></span>
+                <span class="extra-label">Diseño de logo <strong>+400 €</strong></span>
+              </label>
+              <label class="extra-item">
+                <input type="checkbox" name="extra" value="200" data-label="Integración redes sociales">
+                <span class="extra-check"></span>
+                <span class="extra-label">Integración redes sociales <strong>+200 €</strong></span>
+              </label>
+              <label class="extra-item">
+                <input type="checkbox" name="extra" value="350" data-label="Panel de administración">
+                <span class="extra-check"></span>
+                <span class="extra-label">Panel de administración <strong>+350 €</strong></span>
+              </label>
+              <label class="extra-item">
+                <input type="checkbox" name="extra" value="250" data-label="Multiidioma">
+                <span class="extra-check"></span>
+                <span class="extra-label">Multiidioma <strong>+250 €</strong></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Resultado del presupuesto -->
+          <div class="presupuesto-resultado" id="presupuestoBox">
+            <div class="presupuesto-resultado__label">Presupuesto estimado</div>
+            <div class="presupuesto-resultado__precio" id="precioTotal">0 €</div>
+            <div class="presupuesto-resultado__detalle" id="precioDetalle">
+              Selecciona un tipo de proyecto para ver el presupuesto.
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- PARTE 3: CONDICIONES Y ENVÍO -->
+        <fieldset class="form-section form-section--footer">
+          <div class="form-group form-group--check" id="grp-condiciones">
+            <label class="extra-item">
+              <input type="checkbox" id="condiciones" name="condiciones">
+              <span class="extra-check"></span>
+              <span class="extra-label">
+                He leído y acepto la
+                <a href="#" style="color:var(--color-accent)">política de privacidad</a>
+                <span class="req">*</span>
+              </span>
+            </label>
+            <span class="error-msg" id="err-condiciones">Debes aceptar las condiciones para continuar.</span>
+          </div>
+          <div class="form-actions">
+            <button type="reset"  class="btn btn--outline">Resetear</button>
+            <button type="submit" class="btn btn--primary">Enviar presupuesto &#8594;</button>
+          </div>
+        </fieldset>
+
+      </form>
+
+      <!-- Mensaje de éxito -->
+      <div class="form-success" id="formSuccess">
+        <div class="form-success__icon">&#10003;</div>
+        <h2>¡Presupuesto enviado!</h2>
+        <p>Nos pondremos en contacto contigo en las próximas 24 horas.</p>
+        <button class="btn btn--outline" onclick="location.reload()">Nuevo presupuesto</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">DEV<span>STUDIO</span></div>
+        <p>Estudio de desarrollo web profesional.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="GitHub">gh</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Páginas</h4>
+        <a href="../index.html">Inicio</a>
+        <a href="galeria.html">Galería</a>
+        <a href="presupuesto.html">Presupuesto</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div class="footer__col">
+        <h4>Servicios</h4>
+        <a href="#">Desarrollo Web</a>
+        <a href="#">Apps Web</a>
+        <a href="#">Diseño UI/UX</a>
+        <a href="#">SEO</a>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <a href="mailto:hola@devstudio.es">sureybautista@devstudio.es</a>
+        <a href="tel:+34612345678">+34 661346987</a>
+        <a href="#">Avenida Milán, 139 · Tejina · La Laguna</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 DevStudio. Todos los derechos reservados.</p>
+      <div>
+        <a href="#">Aviso legal</a> &nbsp;·&nbsp;
+        <a href="#">Política de privacidad</a> &nbsp;·&nbsp;
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/presupuesto.js"></script>
+
+</body>
+</html>

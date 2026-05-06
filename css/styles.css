@@ -1,0 +1,329 @@
+/* ============================================================
+   DevStudio — Estilos globales
+   Corrección: layout con Flexbox para footer siempre al pie
+   ============================================================ */
+
+/* ── Variables ── */
+:root {
+  --color-primary:    #0A0A0A;
+  --color-secondary:  #1A1A2E;
+  --color-accent:     #E94560;
+  --color-light:      #F5F5F0;
+  --color-white:      #FFFFFF;
+  --color-gray:       #888888;
+  --color-card-bg:    #111122;
+  --nav-height:       70px;
+  --radius:           8px;
+  --shadow:           0 4px 24px rgba(0,0,0,0.3);
+  --transition:       all 0.3s ease;
+  --font-display:     'Bebas Neue', sans-serif;
+  --font-body:        'DM Sans', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+img  { max-width: 100%; display: block; }
+a    { text-decoration: none; color: inherit; }
+ul   { list-style: none; }
+
+/* ============================================================
+   LAYOUT FLEXBOX — CORRECCIÓN FOOTER AL PIE
+   El body ocupa siempre el 100% del viewport mínimo.
+   Main crece para ocupar el espacio sobrante entre navbar y footer.
+   Así el footer SIEMPRE queda al fondo aunque main esté vacío.
+   ============================================================ */
+body {
+  font-family: var(--font-body);
+  background: var(--color-primary);
+  color: var(--color-light);
+  line-height: 1.7;
+  overflow-x: hidden;
+
+  /* Flexbox vertical: navbar + main + footer apilados */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ocupa siempre toda la pantalla como mínimo */
+}
+
+/* Main ocupa todo el espacio disponible entre navbar y footer */
+main {
+  flex: 1; /* crece para llenar el hueco */
+  padding-top: var(--nav-height); /* compensar navbar fija */
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(233,69,96,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  color: var(--color-white);
+}
+.navbar__logo span { color: var(--color-accent); }
+
+.navbar__links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.navbar__links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+}
+.navbar__links a:hover,
+.navbar__links a.active {
+  color: var(--color-white);
+  border-bottom-color: var(--color-accent);
+}
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.navbar__toggle span {
+  display: block; width: 24px; height: 2px;
+  background: var(--color-white);
+  transition: var(--transition);
+}
+
+/* ============================================================
+   FOOTER — siempre al pie gracias al flex del body
+   ============================================================ */
+.footer {
+  background: var(--color-secondary);
+  border-top: 1px solid rgba(233,69,96,0.2);
+  padding: 4rem 5% 2rem;
+  /* NO necesita position:fixed ni absolute — el flexbox lo pone al final */
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer__brand .footer__logo {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
+.footer__brand .footer__logo span { color: var(--color-accent); }
+.footer__brand p { color: var(--color-gray); font-size: 0.9rem; }
+
+.footer__col h4 {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+.footer__col a {
+  display: block;
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  transition: var(--transition);
+}
+.footer__col a:hover { color: var(--color-white); padding-left: 4px; }
+
+.footer__social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.footer__social a {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  color: var(--color-gray);
+}
+.footer__social a:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer__bottom p, .footer__bottom a {
+  color: var(--color-gray);
+  font-size: 0.82rem;
+}
+.footer__bottom a:hover { color: var(--color-accent); }
+
+/* ============================================================
+   COMPONENTES REUTILIZABLES
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn--primary { background: var(--color-accent); color: var(--color-white); }
+.btn--primary:hover {
+  background: #c73652;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(233,69,96,0.3);
+}
+.btn--outline {
+  background: transparent;
+  color: var(--color-white);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.btn--outline:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.card {
+  background: var(--color-card-bg);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+}
+.card:hover {
+  border-color: rgba(233,69,96,0.4);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.form-group { margin-bottom: 1.4rem; }
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  margin-bottom: 0.5rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: var(--transition);
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--color-accent);
+  background: rgba(233,69,96,0.05);
+}
+.form-group .error-msg {
+  display: none;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+.form-group.error input,
+.form-group.error select { border-color: var(--color-accent); }
+.form-group.error .error-msg { display: block; }
+.form-group.ok input,
+.form-group.ok select { border-color: #22c55e; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .navbar__links {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: rgba(10,10,10,0.97);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(233,69,96,0.2);
+  }
+  .navbar__links.open { display: flex; }
+  .navbar__toggle { display: flex; }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .footer__bottom { flex-direction: column; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer__grid { grid-template-columns: 1fr; }
+}

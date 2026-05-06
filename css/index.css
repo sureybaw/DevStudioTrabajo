@@ -1,0 +1,134 @@
+/* ============================================================
+   index.css — Estilos específicos de la página de inicio
+   ============================================================ */
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  overflow: hidden;
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(233,69,96,0.12) 0%, transparent 70%),
+    linear-gradient(135deg, #0A0A0A 0%, #1A1A2E 100%);
+}
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  letter-spacing: 3px;
+  line-height: 0.95;
+  margin: 1rem 0 1.5rem;
+  color: var(--color-white);
+}
+.hero__title--accent { color: var(--color-accent); }
+.hero__subtitle {
+  font-size: 1.05rem;
+  color: var(--color-gray);
+  margin-bottom: 2.5rem;
+  max-width: 520px;
+}
+.hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero__deco {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.07;
+  animation: float 6s ease-in-out infinite;
+}
+.hero__deco--1 { width:500px; height:500px; background:var(--color-accent); right:-100px; top:10%; animation-delay:0s; }
+.hero__deco--2 { width:300px; height:300px; background:#1A1A2E; right:200px; bottom:10%; animation-delay:3s; }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-30px); }
+}
+
+/* SERVICIOS */
+.servicios { padding: 6rem 5%; }
+.servicios__header { text-align: center; margin-bottom: 3rem; }
+.servicios__sub { color: var(--color-gray); max-width: 500px; margin: 0 auto; }
+.servicios__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+.servicios__card { padding: 2rem 1.5rem; text-align: center; }
+.servicios__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.servicios__card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--color-white); }
+.servicios__card p  { color: var(--color-gray); font-size: 0.92rem; }
+
+/* ESTADÍSTICAS */
+.stats {
+  background: var(--color-secondary);
+  border-top: 1px solid rgba(233,69,96,0.15);
+  border-bottom: 1px solid rgba(233,69,96,0.15);
+  padding: 4rem 5%;
+}
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+.stats__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.stats__item p { color: var(--color-gray); font-size: 0.9rem; }
+
+/* NOTICIAS */
+.noticias { padding: 6rem 5%; }
+.noticias__header { text-align: center; margin-bottom: 3rem; }
+.noticias__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.noticias__loading { color: var(--color-gray); text-align: center; grid-column: 1/-1; }
+
+.noticia-card {
+  background: var(--color-card-bg);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.noticia-card:hover {
+  border-color: rgba(233,69,96,0.4);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+/* CORRECCIÓN: height fija en la imagen de la tarjeta, object-fit para no deformar */
+.noticia-card__img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.noticia-card__body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+.noticia-card__cat  { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; }
+.noticia-card__title { font-size: 1rem; font-weight: 600; color: var(--color-white); margin-bottom: 0.75rem; line-height: 1.4; }
+.noticia-card__resumen { color: var(--color-gray); font-size: 0.88rem; flex: 1; margin-bottom: 1rem; }
+.noticia-card__fecha { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+@media (max-width: 768px) {
+  .stats__grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 480px) {
+  .hero__actions { flex-direction: column; }
+}

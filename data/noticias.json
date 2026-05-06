@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "titulo": "Lanzamos nuestra nueva plataforma de desarrollo web",
+    "fecha": "2026-04-20",
+    "categoria": "Empresa",
+    "resumen": "DevStudio estrena su nuevo portal de servicios con tecnologías de última generación. Ahora más rápido, accesible y moderno que nunca.",
+    "imagen": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80"
+  },
+  {
+    "id": 2,
+    "titulo": "JavaScript sigue liderando el ranking de lenguajes más usados",
+    "fecha": "2026-04-15",
+    "categoria": "Tecnología",
+    "resumen": "Según el último informe de Stack Overflow, JavaScript se mantiene como el lenguaje más popular por décimo año consecutivo entre los desarrolladores.",
+    "imagen": "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=600&q=80"
+  },
+  {
+    "id": 3,
+    "titulo": "Nuevo proyecto: rediseño web para Grupo Montaña",
+    "fecha": "2026-04-10",
+    "categoria": "Proyectos",
+    "resumen": "Hemos completado el rediseño completo del sitio web de Grupo Montaña, mejorando la experiencia de usuario y el rendimiento en un 60%.",
+    "imagen": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80"
+  },
+  {
+    "id": 4,
+    "titulo": "Taller gratuito: Introducción a Ajax y APIs REST",
+    "fecha": "2026-04-05",
+    "categoria": "Formación",
+    "resumen": "El próximo mes organizamos un taller online gratuito sobre consumo de APIs y programación asíncrona con JavaScript. Plazas limitadas.",
+    "imagen": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80"
+  }
+]
